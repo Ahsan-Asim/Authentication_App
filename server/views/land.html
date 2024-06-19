@@ -1,0 +1,67 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Welcome</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .info-container {
+            max-width: 600px; 
+            margin: 100px auto;
+            background-color: #c6a16e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .info-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .info-container p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="info-container">
+        <h2>Welcome!</h2>
+        <p id="user-info"></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = JSON.parse(localStorage.getItem('user'));
+
+            if (user) {
+                document.getElementById('user-info').innerHTML = `
+                    Name: ${user.name}<br>
+                    Age: ${user.age}<br>
+                    Email: ${user.email}<br>
+                    Phone: ${user.phoneNumber}<br>
+                    Gender: ${user.gender}<br>
+                    Role: ${user.role}
+                `;
+            } else {
+                document.getElementById('user-info').textContent = 'No user information available.';
+            }
+        });
+    </script>
+</body>
+
+</html>
